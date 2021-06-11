@@ -7,3 +7,8 @@ push = require 'lib/push'
 
 -- https://github.com/vrld/hump/blob/master/class.lua
 Class = require 'lib/class'
+
+require 'src/StateMachine'
+
+require 'src/states/BaseState'
+require 'src/states/StartState'
