@@ -1,4 +1,4 @@
-push = require "lib.push"
+require "src/Dependencies"
 
 local gameWidth, gameHeight = 1080, 720 -- fixed game resolution
 
