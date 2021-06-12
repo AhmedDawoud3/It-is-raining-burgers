@@ -184,7 +184,7 @@ function suit:enterFrame()
 	end
 
 	self.hovered_last, self.hovered = self.hovered, nil
-	self:updateMouse(love.mouse.getX(), love.mouse.getY(), love.mouse.isDown(1))
+	self:updateMouse(push:toGame(love.mouse.getX(), love.mouse.getY())[1] or 0 ,push:toGame(love.mouse.getX(), love.mouse.getY())[2] or 0, love.mouse.isDown(1))
 	self.key_down, self.textchar = nil, ""
 	self:grabKeyboardFocus(NONE)
 	self.hit = nil

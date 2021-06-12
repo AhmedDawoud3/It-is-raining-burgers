@@ -4,9 +4,13 @@ function FallingIngredients:init()
     self.ingredients = {'tomato', 'meat', 'lettuce', 'upperBun', 'lowerBun'}
     self.falling = {}
     self.selectedIngredients = {}
+    for i = 0, 1000 do
+        print(i, push:toGame(i, 0)[1])
+    end
 end
 
 function FallingIngredients:update(dt)
+
     if love.mouse.wasReleased(1) then
         -- TODO MakeBurger(self.selectedIngredients)
         self.selectedIngredients = {}
@@ -17,7 +21,8 @@ function FallingIngredients:update(dt)
     end
     for i, v in ipairs(self.falling) do
         v:update(dt)
-        v.marked = v:checkMouse(love.mouse.getX(), love.mouse.getY())
+        v.marked = v:checkMouse(push:toGame(love.mouse.getX(), love.mouse.getY())[1] or 0,
+            push:toGame(love.mouse.getX(), love.mouse.getY())[2] or 0)
         v.selected = false
         if love.mouse.isDown(1) and v.marked and not hasValue(self.selectedIngredients, v) then
             table.insert(self.selectedIngredients, v)
