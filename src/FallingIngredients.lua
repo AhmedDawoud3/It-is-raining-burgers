@@ -4,9 +4,6 @@ function FallingIngredients:init()
     self.ingredients = {'tomato', 'meat', 'lettuce', 'upperBun', 'lowerBun'}
     self.falling = {}
     self.selectedIngredients = {}
-    for i = 0, 1000 do
-        print(i, push:toGame(i, 0)[1])
-    end
 end
 
 function FallingIngredients:update(dt)
