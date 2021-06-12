@@ -1,6 +1,6 @@
 Ingredient = Class {}
 
-shader = love.graphics.newShader [[
+whiteShader = love.graphics.newShader [[
 extern float WhiteFactor;
 
 vec4 effect(vec4 vcolor, Image tex, vec2 texcoord, vec2 pixcoord)
@@ -22,6 +22,7 @@ function Ingredient:init(type)
     self.dx = 0
     self.dy = 100
     self.marked = false
+    self.selected = false
 end
 
 function Ingredient:update(dt)
@@ -30,10 +31,14 @@ function Ingredient:update(dt)
     self.y = self.y + self.dy * dt
 end
 function Ingredient:draw()
-
-    if self.marked then
-        love.graphics.setShader(shader)
-        shader:send("WhiteFactor", 1)
+    if self.selected then
+        love.graphics.setShader(whiteShader)
+        whiteShader:send("WhiteFactor", 0.5)
+        love.graphics.draw(self.sprite, self.x - self.width / 3.5, self.y - self.height / 3.5, 0, 2.5, 2.5)
+        love.graphics.setShader()
+    elseif self.marked then
+        love.graphics.setShader(whiteShader)
+        whiteShader:send("WhiteFactor", 1)
         love.graphics.draw(self.sprite, self.x - self.width / 3.5, self.y - self.height / 3.5, 0, 2.5, 2.5)
         love.graphics.setShader()
     end
