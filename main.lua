@@ -26,6 +26,9 @@ function love.load()
         end,
         ['award'] = function()
             return AwardState()
+        end,
+        ['gameOver'] = function()
+            return GameOverState()
         end
     }
     gStateMachine:change('start')

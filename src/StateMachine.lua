@@ -11,6 +11,7 @@ function StateMachine:init(states)
 	self.current = self.empty
 	self.width = gameWidth
 	self.height = gameHeight
+	self.timer = 0
 end
 
 function StateMachine:change(stateName, enterParams)
