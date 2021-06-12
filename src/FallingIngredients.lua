@@ -12,6 +12,7 @@ function FallingIngredients:update(dt)
     end
     for i, v in ipairs(self.falling) do
         v:update(dt)
+        v.marked = v:checkMouse(love.mouse.getX(), love.mouse.getY())
     end
     if #self.falling > 0 then
         for i = #self.falling, 1 do
