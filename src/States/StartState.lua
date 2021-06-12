@@ -29,12 +29,8 @@ end
 
 function StartState:update(dt)
 		if self.suit:Button('play', {font = font}, 230, 285, 180, 60).hit then
-			gStateMachine:change('play', {fallingIngredients = FallingIngredients()})
+			gStateMachine:change('ready')
 		end
-		
-    --if love.keyboard.wasPressed('space') then
-        --gStateMachine:change('play', {fallingIngredients = FallingIngredients()})
-    --end
 
     if love.keyboard.wasPressed('enter') then
         love.event.quit()

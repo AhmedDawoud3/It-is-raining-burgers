@@ -20,6 +20,9 @@ function love.load()
         end,
         ['play'] = function()
             return PlayState()
+        end,
+        ['ready'] = function()
+            return ReadyState()
         end
     }
     gStateMachine:change('start')
