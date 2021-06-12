@@ -2,7 +2,7 @@ StartState = Class {
     __includes = BaseState
 }
 
---local font = love.graphics.newFont('asset/fonts/04B_08__.TTF', 30)
+local font = love.graphics.newFont('asset/fonts/04B_08__.TTF', 30)
 
 function StartState:enter(params)
 	self.suit = Suit.new()
@@ -10,6 +10,7 @@ end
 
 function StartState:render()
 		love.graphics.setColor(1, 1, 1)
+		love.graphics.setFont(font)
 		love.graphics.draw(gTextures.background, 0, 0, 0, 4, 4)
 		
 		self.suit:draw()
@@ -27,7 +28,7 @@ function StartState:render()
 end
 
 function StartState:update(dt)
-		if self.suit:Button('play', 230, 285, 180, 60).hit then
+		if self.suit:Button('play', {font = font}, 230, 285, 180, 60).hit then
 			gStateMachine:change('play', {fallingIngredients = FallingIngredients()})
 		end
 		
