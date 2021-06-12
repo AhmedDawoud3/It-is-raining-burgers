@@ -13,7 +13,8 @@ Class = require 'lib/class'
 
 require 'src/StateMachine'
 
-require 'src/Bun'
+require 'src/FallingIngredients'
+require 'src/Ingredient'
 
 require 'src/states/BaseState'
 require 'src/states/StartState'
