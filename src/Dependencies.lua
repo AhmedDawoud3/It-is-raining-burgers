@@ -1,3 +1,6 @@
+-- UI lib
+Suit = require 'lib/suit'
+
 -- https://github.com/Ulydev/push
 push = require 'lib/push'
 

@@ -1,6 +1,6 @@
 require "src/Dependencies"
 
-gameWidth, gameHeight = 1080, 720 -- fixed game resolution
+gameWidth, gameHeight = 640, 480 -- fixed game resolution
 
 function love.load()
     love.graphics.setDefaultFilter('nearest', 'nearest')
@@ -81,6 +81,6 @@ end
 function DisplayFPS()
     -- simple FPS display across all states
     love.graphics.setColor(0, 1, 0, 1)
-    love.graphics.print('FPS: ' .. tostring(love.timer.getFPS()), 5, 5)
+    --love.graphics.print('FPS: ' .. tostring(love.timer.getFPS()), 5, 5)
     love.graphics.setColor(1, 1, 1, 1)
 end
