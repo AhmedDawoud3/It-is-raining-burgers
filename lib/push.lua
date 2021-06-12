@@ -236,8 +236,7 @@ function push:toGame(x, y)
   
   x = (x >= 0 and x <= self._WWIDTH * self._SCALE.x) and normalX * self._WWIDTH or nil
   y = (y >= 0 and y <= self._WHEIGHT * self._SCALE.y) and normalY * self._WHEIGHT or nil
-  
-  return x, y
+  return {x, y}
 end
 
 function push:toReal(x, y)

@@ -45,8 +45,8 @@ end
 function love.draw()
     push:apply('start')
     gStateMachine:render()
-    push:apply('end')
     DisplayFPS()
+    push:apply('end')
 end
 
 function love.resize(w, h)

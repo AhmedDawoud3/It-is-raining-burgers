@@ -15,7 +15,7 @@ end
 
 function StartState:update(dt)
     if love.keyboard.wasPressed('space') then
-        gStateMachine:change('play')
+        gStateMachine:change('play', {bun = Bun()})
     end
 
     if love.keyboard.wasPressed('enter') then

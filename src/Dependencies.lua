@@ -10,6 +10,8 @@ Class = require 'lib/class'
 
 require 'src/StateMachine'
 
+require 'src/Bun'
+
 require 'src/states/BaseState'
 require 'src/states/StartState'
 require 'src/states/PlayState'
