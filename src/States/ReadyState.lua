@@ -31,7 +31,8 @@ function ReadyState:update(dt)
     end
     if self.timer == 3 then
         gStateMachine:change('play', {
-            fallingIngredients = FallingIngredients()
+            fallingIngredients = FallingIngredients(),
+			score = 0
         })
     end
 end

@@ -23,6 +23,9 @@ function love.load()
         end,
         ['ready'] = function()
             return ReadyState()
+        end,
+        ['award'] = function()
+            return AwardState()
         end
     }
     gStateMachine:change('start')

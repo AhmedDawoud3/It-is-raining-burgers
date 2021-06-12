@@ -9,8 +9,24 @@ end
 function FallingIngredients:update(dt)
 
     if love.mouse.wasReleased(1) then
-        -- TODO MakeBurger(self.selectedIngredients)
+        if #self.selectedIngredients > 1 then
+            gStateMachine:change('award', {
+                fallingIngredients = gStateMachine.current.fallingIngredients,
+                selectedIngredients = self.selectedIngredients,
+                falling = self.falling,
+                score = gStateMachine.current.score
+            })
+            for i = #self.falling, 1, -1 do
+                v = self.falling[i]
+                for _, q in ipairs(self.selectedIngredients) do
+                    if v == q then
+                        table.remove(self.falling, i)
+                    end
+                end
+            end
+        end
         self.selectedIngredients = {}
+        return
     end
     if math.random() < 0.05 then
         local a = self.ingredients[math.random(1, #self.ingredients)]

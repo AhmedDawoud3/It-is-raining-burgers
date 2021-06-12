@@ -3,8 +3,12 @@
 PlayState = Class {
     __includes = BaseState
 }
+
+local font = love.graphics.newFont('asset/fonts/04B_08__.TTF', 20)
+
 function PlayState:enter(params)
     self.fallingIngredients = params.fallingIngredients
+    self.score = params.score
     -- love.mouse.setVisible(false)
 end
 
@@ -31,6 +35,8 @@ function PlayState:render()
     love.graphics.draw(gTextures['background'], 0, 0, 0, 4, 4)
     
     self.fallingIngredients:draw()
+    love.graphics.setFont(font)
+    love.graphics.print("Score :" .. self.score,gStateMachine.width - 150 , 10)
     -- pause text, if paused
     if self.paused then
         love.graphics.printf("PAUSED", 0, gStateMachine.height / 2 - 16, gStateMachine.width, 'center')

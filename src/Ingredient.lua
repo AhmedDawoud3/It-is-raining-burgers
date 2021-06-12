@@ -12,6 +12,7 @@ vec4 effect(vec4 vcolor, Image tex, vec2 texcoord, vec2 pixcoord)
 ]]
 
 function Ingredient:init(type)
+    self.type = type
     self.sprite = gTextures[type]
 
     self.width = self.sprite:getWidth()
@@ -43,6 +44,10 @@ function Ingredient:draw()
         love.graphics.setShader()
     end
     love.graphics.draw(self.sprite, self.x, self.y, 0, 2, 2)
+end
+
+function Ingredient:drawCustom(x, y, sx, sy)
+    love.graphics.draw(self.sprite, x, y, 0, sx, sy)
 end
 
 function Ingredient:checkMouse(mouseX, mouseY)
