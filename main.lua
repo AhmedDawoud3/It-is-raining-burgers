@@ -1,6 +1,6 @@
 require "src/Dependencies"
 
-gameWidth, gameHeight = 1080, 720 -- fixed game resolution
+gameWidth, gameHeight = 640, 480
 
 function love.load()
     love.graphics.setDefaultFilter('nearest', 'nearest')
@@ -28,10 +28,21 @@ function love.load()
         resizable = true
     })
 
+    gTextures = {
+        ['background'] = love.graphics.newImage('asset/sprites/background.png'),
+        ['lettuce'] = love.graphics.newImage('asset/sprites/lettuce.png'),
+        ['lowerBun'] = love.graphics.newImage('asset/sprites/lowerBun.png'),
+        ['meat'] = love.graphics.newImage('asset/sprites/meat.png'),
+        ['tomato'] = love.graphics.newImage('asset/sprites/tomato.png'),
+        ['upperBun'] = love.graphics.newImage('asset/sprites/upperBun.png')
+    }
+
     -- a table we'll use to keep track of which keys have been pressed this
     -- frame, to get around the fact that Love's default callback won't let us
     -- test for input from within other functions
     love.keyboard.keysPressed = {}
+    love.mouse.keysPressed = {}
+    love.mouse.keysReleased = {}
 end
 
 function love.update(dt)
@@ -40,6 +51,8 @@ function love.update(dt)
 
     -- reset keys pressed
     love.keyboard.keysPressed = {}
+    love.mouse.keysPressed = {}
+    love.mouse.keysReleased = {}
 end
 
 function love.draw()
@@ -70,12 +83,25 @@ end
     of the default `love.keypressed` callback, since we can't call that logic
     elsewhere by default.
 ]]
+
+function love.mousepressed(x, y, key)
+    love.mouse.keysPressed[key] = true
+end
+
+function love.mousereleased(x, y, key)
+    love.mouse.keysReleased[key] = true
+end
+
 function love.keyboard.wasPressed(key)
-    if love.keyboard.keysPressed[key] then
-        return true
-    else
-        return false
-    end
+    return love.keyboard.keysPressed[key]
+end
+
+function love.mouse.wasPressed(key)
+    return love.mouse.keysPressed[key]
+end
+
+function love.mouse.wasReleased(key)
+    return love.mouse.keysReleased[key]
 end
 
 function DisplayFPS()
