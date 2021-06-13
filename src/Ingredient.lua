@@ -18,7 +18,7 @@ function Ingredient:init(type)
     self.width = self.sprite:getWidth()
     self.height = self.sprite:getHeight()
 
-    self.x = math.random(0, gStateMachine.width - self.width)
+    self.x = math.random(0, gStateMachine.width - self.width * 3)
     self.y = -self.height
     self.dx = 0
     self.dy = 65
