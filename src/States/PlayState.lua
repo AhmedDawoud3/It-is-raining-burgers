@@ -4,7 +4,7 @@ PlayState = Class {
     __includes = BaseState
 }
 
-local font = love.graphics.newFont('asset/fonts/04B_03B_.TTF', 30)
+local font = love.graphics.newFont('asset/fonts/04B_03B_.TTF', 28)
 
 function PlayState:enter(params)
     self.fallingIngredients = params.fallingIngredients
@@ -57,8 +57,8 @@ function PlayState:render()
     self.fallingIngredients:draw()
     love.graphics.setFont(font)
     love.graphics.setColor(51 / 255, 60 / 255, 87 / 255)
-    love.graphics.print("Score :" .. self.score, gStateMachine.width - 150, 10)
-    love.graphics.print("Time Left :" .. 30 - gStateMachine.timer, 10, 10)
+		love.graphics.print("Time Left: " .. 30 - gStateMachine.timer, 6, 6)
+    love.graphics.printf("Score: " .. self.score, -2, 6, gStateMachine.width, 'right')
     -- pause text, if paused
     if self.paused then
         love.graphics.setColor(1, 1, 1, 1)

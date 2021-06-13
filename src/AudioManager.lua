@@ -1,6 +1,10 @@
 AudioManager = Class {}
 
 local sounds = {
+	['count'] = {
+		source = love.audio.newSource('asset/sounds/count.wav', 'static'),
+		volume = 0.72,
+	},
 	['create a burger'] = {
 		source = love.audio.newSource('asset/sounds/createABurger.wav', 'static'),
 		volume = 0.86,
@@ -8,7 +12,7 @@ local sounds = {
 	['connect an ingredient'] = {
 		source = love.audio.newSource('asset/sounds/connectAnIngredient.wav', 'static'),
 		volume = 1,
-	}
+	},
 }
 
 function AudioManager:init()

@@ -7,6 +7,8 @@ local font = love.graphics.newFont('asset/fonts/04B_08__.TTF', 70)
 function ReadyState:enter(params)
 	self.timer = 0
 	self.timeIncrement = 0
+	
+	gAudioManager:playSound('count')
 end
 
 function ReadyState:render()
@@ -28,6 +30,10 @@ function ReadyState:update(dt)
     if self.timeIncrement > 1 then
         self.timer = self.timer + 1
         self.timeIncrement = self.timeIncrement % 1
+        
+        if self.timer ~= 3 then
+					gAudioManager:playSound('count')
+				end
     end
     if self.timer == 3 then
         gStateMachine:change('play', {

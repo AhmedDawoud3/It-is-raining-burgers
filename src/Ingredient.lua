@@ -21,7 +21,7 @@ function Ingredient:init(type)
     self.x = math.random(0, gStateMachine.width - self.width)
     self.y = -self.height
     self.dx = 0
-    self.dy = 100
+    self.dy = 65
     self.marked = false
     self.selected = false
 end
@@ -35,15 +35,15 @@ function Ingredient:draw()
     if self.selected then
         love.graphics.setShader(whiteShader)
         whiteShader:send("WhiteFactor", 0.5)
-        love.graphics.draw(self.sprite, self.x - self.width / 3.5, self.y - self.height / 3.5, 0, 2.5, 2.5)
+        love.graphics.draw(self.sprite, self.x - self.width / 3.5, self.y - self.height / 3.5, 0, 3.5, 3.5)
         love.graphics.setShader()
     elseif self.marked then
         love.graphics.setShader(whiteShader)
         whiteShader:send("WhiteFactor", 1)
-        love.graphics.draw(self.sprite, self.x - self.width / 3.5, self.y - self.height / 3.5, 0, 2.5, 2.5)
+        love.graphics.draw(self.sprite, self.x - self.width / 3.5, self.y - self.height / 3.5, 0, 3.5, 3.5)
         love.graphics.setShader()
     end
-    love.graphics.draw(self.sprite, self.x, self.y, 0, 2, 2)
+    love.graphics.draw(self.sprite, self.x, self.y, 0, 3, 3)
 end
 
 function Ingredient:drawCustom(x, y, sx, sy)
@@ -51,7 +51,7 @@ function Ingredient:drawCustom(x, y, sx, sy)
 end
 
 function Ingredient:checkMouse(mouseX, mouseY)
-    if mouseX > self.x and mouseX < self.x + self.width * 2 and mouseY > self.y and mouseY < self.y + self.height * 2 then
+    if mouseX > self.x and mouseX < self.x + self.width * 3 and mouseY > self.y and mouseY < self.y + self.height * 3 then
         return true
     end
     return false

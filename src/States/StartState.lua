@@ -6,6 +6,11 @@ local font = love.graphics.newFont('asset/fonts/04B_08__.TTF', 30)
 
 function StartState:enter(params)
 	self.suit = Suit.new()
+	self.suit.theme.color = {
+		normal   = {bg = { 0.25, 0.27, 0.3}, fg = {0.72,0.72,0.77}},
+		hovered  = {bg = { 0.4, 0.65, 0.73}, fg = {1,1,1}},
+		active   = {bg = { 0.8,  0.4,  0.3}, fg = {1,1,1}}
+	}
 end
 
 function StartState:render()
@@ -28,10 +33,10 @@ function StartState:render()
 end
 
 function StartState:update(dt)
-		if self.suit:Button('play', {font = font}, 230, 285, 180, 60).hit then
+		if self.suit:Button('play', {font = font}, 230, 255, 180, 60).hit then
 			gStateMachine:change('ready')
 		end
-		if self.suit:Button('exit', {font = font}, 230, 385, 180, 60).hit then
+		if self.suit:Button('exit', {font = font}, 230, 340, 180, 60).hit then
 			love.event.quit()
 		end
 end

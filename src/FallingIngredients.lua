@@ -4,9 +4,14 @@ function FallingIngredients:init()
     self.ingredients = {'tomato', 'meat', 'lettuce', 'upperBun', 'lowerBun'}
     self.falling = {}
     self.selectedIngredients = {}
+    
+    self.dropQueue = {}
+		self.timer = Timer.new()
+    self.timer:every(0.4, function() self:dropIngredient() end)
 end
 
 function FallingIngredients:update(dt)
+		self.timer:update(dt)
 
     if love.mouse.wasReleased(1) then
         if #self.selectedIngredients > 1 then
@@ -29,10 +34,10 @@ function FallingIngredients:update(dt)
         self.selectedIngredients = {}
         return
     end
-    if math.random() < 0.05 then
-        local a = self.ingredients[math.random(1, #self.ingredients)]
-        table.insert(self.falling, Ingredient(a))
-    end
+    --if math.random() < 0.05 then
+        --local a = self.ingredients[math.random(1, #self.ingredients)]
+        --table.insert(self.falling, Ingredient(a))
+    --end
     for i, v in ipairs(self.falling) do
         v:update(dt)
         v.marked = v:checkMouse(push:toGame(love.mouse.getX(), love.mouse.getY())[1] or 0,
@@ -86,4 +91,28 @@ function hasValue(table, val)
         end
     end
     return false
+end
+
+
+function FallingIngredients:dropIngredient()
+	-- reset drop queue if drop queue is empty
+	if #self.dropQueue == 0 then
+		local queue = {}
+		local t = {1, 2, 3, 4, 5}
+		
+		for i = 1, 5 do
+			local j = math.random(1, 5)
+		
+			table.insert(queue, t[j])
+			table.remove(t, j)
+		end
+		
+		self.dropQueue = queue
+	end
+	
+	-- drop an ingredient corresponding to the next number in the queue
+	local num = self.dropQueue[1]
+	local ingre = self.ingredients[num]
+	table.insert(self.falling, Ingredient(ingre))
+	table.remove(self.dropQueue, 1)
 end

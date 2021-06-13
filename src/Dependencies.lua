@@ -1,6 +1,9 @@
 -- UI lib
 Suit = require 'lib/suit'
 
+-- Timing stuff
+Timer = require 'lib/timer'
+
 -- https://github.com/Ulydev/push
 push = require 'lib/push'
 
