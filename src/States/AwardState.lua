@@ -12,6 +12,8 @@ function AwardState:enter(params)
     self._y = 25
     self.rating, self.comment = RateBurger(self.selectedIngredients)[1], RateBurger(self.selectedIngredients)[2]
     self.score = self.score + self.rating
+    
+    gAudioManager:playSound('create a burger')
 end
 
 function AwardState:update(dt)

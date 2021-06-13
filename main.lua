@@ -46,6 +46,8 @@ function love.load()
         ['upperBun'] = love.graphics.newImage('asset/sprites/upperBun.png')
     }
 
+		gAudioManager = AudioManager()
+
     -- a table we'll use to keep track of which keys have been pressed this
     -- frame, to get around the fact that Love's default callback won't let us
     -- test for input from within other functions

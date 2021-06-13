@@ -41,6 +41,8 @@ function FallingIngredients:update(dt)
         if love.mouse.isDown(1) and v.marked and not hasValue(self.selectedIngredients, v) then
             table.insert(self.selectedIngredients, v)
             v.selected = true
+            
+            gAudioManager:playSound('connect an ingredient')
         end
     end
     if #self.falling > 0 then

@@ -16,6 +16,7 @@ require 'src/StateMachine'
 require 'src/FallingIngredients'
 require 'src/Ingredient'
 require 'src/EffectManager'
+require 'src/AudioManager'
 
 require 'src/states/BaseState'
 require 'src/states/StartState'
