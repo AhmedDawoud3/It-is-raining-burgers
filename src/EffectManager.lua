@@ -8,8 +8,7 @@ end
 function EffectManager:update(dt)
     local trail, trailLength = self.trail, self.trailLength
     if #trail < trailLength then
-        local x, y = push:toGame(love.mouse.getX(), love.mouse.getY())[1] or 0,
-            push:toGame(love.mouse.getX(), love.mouse.getY())[2] or 0
+        local x, y = love.mouse.getX(), love.mouse.getY()
 
         trail[#trail + 1] = {
             x = x,
@@ -20,9 +19,8 @@ function EffectManager:update(dt)
         for i = 1, trailLength - 1 do
             trail[i] = trail[i + 1]
         end
-		
-        local x, y = push:toGame(love.mouse.getX(), love.mouse.getY())[1] or 0,
-            push:toGame(love.mouse.getX(), love.mouse.getY())[2] or 0
+   
+        local x, y = love.mouse.getX(), love.mouse.getY()
         trail[trailLength] = {
             x = x,
             y = y

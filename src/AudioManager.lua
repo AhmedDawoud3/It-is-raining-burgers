@@ -10,7 +10,7 @@ sounds['create a burger']:setVolume(0.86)
 sounds['connect an ingredient']:setVolume(1)
 
 local songs = {
-	['main theme'] = love.audio.newSource('asset/sounds/Shiny.mp3', 'stream'),
+	['main theme'] = love.audio.newSource('asset/sounds/Shiny.mp3', 'static'),
 }
 songs['main theme']:setVolume(0.76)
 

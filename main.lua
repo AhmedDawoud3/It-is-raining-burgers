@@ -33,9 +33,7 @@ function love.load()
     }
     gStateMachine:change('start')
 
-    push:setupScreen(gStateMachine.width, gStateMachine.height, gameWidth, gameHeight, {
-        resizable = true
-    })
+    love.window.setMode(gStateMachine.width, gStateMachine.height)
 
     gTextures = {
         ['background'] = love.graphics.newImage('asset/sprites/background.png'),
@@ -67,14 +65,8 @@ function love.update(dt)
 end
 
 function love.draw()
-    push:apply('start')
     gStateMachine:render()
     DisplayFPS()
-    push:apply('end')
-end
-
-function love.resize(w, h)
-    push:resize(w, h)
 end
 
 -- HANDLING KEY PRESSING 

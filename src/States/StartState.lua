@@ -36,7 +36,5 @@ function StartState:update(dt)
 		if self.suit:Button('play', {font = font}, 230, 255, 180, 60).hit then
 			gStateMachine:change('ready')
 		end
-		if self.suit:Button('exit', {font = font}, 230, 340, 180, 60).hit then
-			love.event.quit()
-		end
+
 end
