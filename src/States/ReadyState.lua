@@ -41,5 +41,6 @@ function ReadyState:update(dt)
 						effectManager = EffectManager(),
 						score = 0,
         })
+        gAudioManager:playSong('main theme')
     end
 end

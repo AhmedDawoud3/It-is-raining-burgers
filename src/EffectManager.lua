@@ -36,7 +36,7 @@ function EffectManager:draw()
 
     for i = 1, #self.trail do
         local pos = self.trail[i]
-        love.graphics.circle('fill', pos.x, pos.y, i / 8)
+        love.graphics.circle('fill', pos.x, pos.y, i / 5)
 
         if i ~= 1 then
             local previousPos = self.trail[i - 1]
@@ -47,7 +47,7 @@ function EffectManager:draw()
 
             local d = 25
             for j = 1, d - 1 do
-                love.graphics.circle('fill', pos.x - posDelta.x / d * j, pos.y - posDelta.y / d * j, i / 8)
+                love.graphics.circle('fill', pos.x - posDelta.x / d * j, pos.y - posDelta.y / d * j, i / 5)
             end
         end
     end

@@ -7,6 +7,8 @@ local font = love.graphics.newFont('asset/fonts/04B_08__.TTF', 30)
 function GameOverState:enter(params)
     self.score = params.score
     self.suit = Suit.new()
+    
+    gAudioManager:stopSong(true)
 end
 
 function GameOverState:render()

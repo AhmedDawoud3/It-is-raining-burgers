@@ -50,15 +50,16 @@ function PlayState:render()
     love.graphics.setDefaultFilter('linear', 'nearest')
     love.graphics.draw(gTextures['background'], 0, 0, 0, 4, 4)
 
-		-- Effects
-		self.effectManager:draw()
-
     -- love.graphics.setDefaultFilter('nearest', 'nearest')
     self.fallingIngredients:draw()
     love.graphics.setFont(font)
     love.graphics.setColor(51 / 255, 60 / 255, 87 / 255)
 		love.graphics.print("Time Left: " .. 30 - gStateMachine.timer, 6, 6)
     love.graphics.printf("Score: " .. self.score, -2, 6, gStateMachine.width, 'right')
+    
+    -- Effects
+		self.effectManager:draw()
+    
     -- pause text, if paused
     if self.paused then
         love.graphics.setColor(1, 1, 1, 1)
