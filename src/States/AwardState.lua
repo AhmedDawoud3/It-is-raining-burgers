@@ -7,6 +7,7 @@ function AwardState:enter(params)
     self.selectedIngredients = SortBurger(params.selectedIngredients)
     self.fallingIngredients = params.fallingIngredients
     self.falling = params.falling
+    self.effectManager = params.effectManager
     self.score = params.score
     self._y = 25
     self.rating, self.comment = RateBurger(self.selectedIngredients)[1], RateBurger(self.selectedIngredients)[2]
@@ -19,6 +20,7 @@ function AwardState:update(dt)
     if self._y == 0 and math.random(0, 10) == 1 then
         gStateMachine:change('play', {
             fallingIngredients = self.fallingIngredients,
+            effectManager = self.effectManager,
             score = self.score
         })
     end

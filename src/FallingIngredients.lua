@@ -13,6 +13,7 @@ function FallingIngredients:update(dt)
             gStateMachine:change('award', {
                 fallingIngredients = gStateMachine.current.fallingIngredients,
                 selectedIngredients = self.selectedIngredients,
+                effectManager = gStateMachine.current.effectManager,
                 falling = self.falling,
                 score = gStateMachine.current.score
             })
