@@ -34,9 +34,9 @@ function love.load()
     gStateMachine:change('start')
 
     push:setupScreen(gStateMachine.width, gStateMachine.height, gameWidth, gameHeight, {
-        resizable = true
+        fullscreen = true
     })
-
+    push:resize(love.graphics.getDimensions())
     gTextures = {
         ['background'] = love.graphics.newImage('asset/sprites/background.png'),
         ['lettuce'] = love.graphics.newImage('asset/sprites/lettuce.png'),
