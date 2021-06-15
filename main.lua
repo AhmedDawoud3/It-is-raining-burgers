@@ -34,7 +34,8 @@ function love.load()
     gStateMachine:change('start')
 
     push:setupScreen(gStateMachine.width, gStateMachine.height, gameWidth, gameHeight, {
-        fullscreen = true
+        -- fullscreen = true
+        resizable = true
     })
     push:resize(love.graphics.getDimensions())
     gTextures = {
@@ -67,6 +68,7 @@ function love.update(dt)
 end
 
 function love.draw()
+    love.graphics.clear(51/255, 60/255, 87/255)
     push:apply('start')
     gStateMachine:render()
     DisplayFPS()
